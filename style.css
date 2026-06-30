@@ -585,3 +585,111 @@ section { padding: 120px 0; position: relative; z-index: 2; }
   .bot-wrap { bottom: 14px; right: 14px; }
   .bot-window { width: calc(100vw - 28px); }
 }
+
+/* =========================================
+   HCB LINK VARIANTS (hero contact row)
+   ========================================= */
+.hcb-link { text-decoration: none; cursor: pointer; }
+.hcb-link:hover { border-color: var(--cyan); color: var(--cyan); box-shadow: 0 0 15px rgba(0,245,255,.2); }
+.hcb-link.hcb-li:hover { border-color: #0a66c2; color: #0a66c2; box-shadow: 0 0 15px rgba(10,102,194,.25); }
+
+/* =========================================
+   ABOUT SECTION — BUTTON ROW
+   ========================================= */
+.about-btn-row { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 22px; }
+
+/* =========================================
+   SOCIAL CARDS (About section)
+   ========================================= */
+.social-cards-row {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 14px; margin-top: 4px;
+}
+.scard {
+  display: flex; align-items: center; gap: 12px;
+  padding: 14px 16px; border-radius: var(--r);
+  border: 1px solid var(--border);
+  background: var(--bgcard); backdrop-filter: blur(16px);
+  text-decoration: none; transition: var(--tr);
+  position: relative; overflow: hidden;
+}
+.scard::before {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(0,245,255,0.05), transparent);
+  opacity: 0; transition: opacity .3s;
+}
+.scard:hover::before { opacity: 1; }
+.scard:hover { transform: translateY(-4px); }
+
+.scard-gh:hover  { border-color: rgba(0,245,255,.5); box-shadow: 0 12px 35px rgba(0,245,255,.12); }
+.scard-li:hover  { border-color: rgba(10,102,194,.6); box-shadow: 0 12px 35px rgba(10,102,194,.18); }
+.scard-cv:hover  { border-color: rgba(179,0,255,.5); box-shadow: 0 12px 35px rgba(179,0,255,.12); }
+
+.scard-icon {
+  width: 40px; height: 40px; border-radius: 10px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  transition: var(--tr);
+}
+.scard-gh .scard-icon  { background: rgba(0,245,255,.1);  color: var(--cyan); }
+.scard-li .scard-icon  { background: rgba(10,102,194,.15); color: #0a66c2; }
+.scard-cv .scard-icon  { background: rgba(179,0,255,.1);  color: var(--purple); }
+
+.scard-gh:hover .scard-icon  { background: rgba(0,245,255,.18); box-shadow: 0 0 18px rgba(0,245,255,.25); }
+.scard-li:hover .scard-icon  { background: rgba(10,102,194,.25); box-shadow: 0 0 18px rgba(10,102,194,.3); }
+.scard-cv:hover .scard-icon  { background: rgba(179,0,255,.18); box-shadow: 0 0 18px rgba(179,0,255,.25); }
+
+.scard-info { flex: 1; min-width: 0; }
+.scard-name { display: block; font-family: var(--fa); font-size: .82rem; font-weight: 600; letter-spacing: 1px; color: var(--t1); text-transform: uppercase; }
+.scard-handle { display: block; font-family: var(--fc); font-size: .68rem; color: var(--t2); margin-top: 2px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.scard-arrow { font-size: 1rem; color: var(--t3); transition: var(--tr); }
+.scard:hover .scard-arrow { color: var(--cyan); transform: translate(3px,-3px); }
+.scard-li:hover .scard-arrow { color: #0a66c2; }
+.scard-cv:hover .scard-arrow { color: var(--purple); }
+
+/* =========================================
+   FIXED SOCIAL SIDEBAR (left side)
+   ========================================= */
+.social-sidebar {
+  position: fixed; left: 22px; bottom: 0; z-index: 100;
+  display: flex; flex-direction: column; align-items: flex-start;
+  gap: 10px; animation: fadeUp .8s ease .6s both;
+}
+.soc-btn {
+  display: flex; align-items: center; gap: 10px;
+  height: 42px; width: 42px; border-radius: 50px;
+  border: 1px solid var(--border);
+  background: rgba(5,5,18,0.88);
+  backdrop-filter: blur(14px);
+  color: var(--t2); text-decoration: none;
+  padding: 0 12px; overflow: hidden;
+  transition: width .38s cubic-bezier(.4,0,.2,1),
+              border-color .3s, color .3s, box-shadow .3s;
+  white-space: nowrap;
+}
+.soc-btn svg { width: 19px; height: 19px; flex-shrink: 0; }
+.soc-btn:hover { width: 132px; color: var(--cyan); border-color: var(--cyan); box-shadow: 0 0 22px rgba(0,245,255,.28), 4px 0 20px rgba(0,245,255,.08); }
+.soc-btn.soc-li:hover { color: #0a66c2; border-color: #0a66c2; box-shadow: 0 0 22px rgba(10,102,194,.35), 4px 0 20px rgba(10,102,194,.1); }
+.soc-btn.soc-cv:hover { color: var(--purple); border-color: var(--purple); box-shadow: 0 0 22px rgba(179,0,255,.28), 4px 0 20px rgba(179,0,255,.08); }
+
+.soc-label {
+  font-family: var(--fa); font-size: .78rem; letter-spacing: 1.5px;
+  text-transform: uppercase; overflow: hidden;
+  opacity: 0; max-width: 0; transition: opacity .25s .1s, max-width .35s;
+}
+.soc-btn:hover .soc-label { opacity: 1; max-width: 90px; }
+
+.soc-line {
+  width: 1px; height: 70px; margin-left: 20px;
+  background: linear-gradient(180deg, var(--border), transparent);
+}
+
+@media (max-width: 1100px) { .social-sidebar { display: none; } }
+
+/* Responsive social cards */
+@media (max-width: 900px) {
+  .social-cards-row { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .social-cards-row { grid-template-columns: 1fr; }
+  .scard-handle { display: none; }
+}
