@@ -416,17 +416,28 @@ function initContactForm() {
     lbl.textContent = 'Sending…'; btn.disabled = true;
 
     try {
-      await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
-        { from_name: name, from_email: email, subject: subject, message: message },
-        EMAILJS_PUBLIC_KEY
-      );
-      showMsg('🚀 Message sent! Abhishek will get back to you soon.', 'ok');
-      form.reset();
+      if (EMAILJS_SERVICE_ID.startsWith('YOUR_')) {
+        // ── EmailJS not configured yet — use mailto fallback ──
+        const mailto = `mailto:abhishek129529@gmail.com`
+          + `?subject=${encodeURIComponent(subject)}`
+          + `&body=${encodeURIComponent(`Hi Abhishek,\n\nFrom: ${name}\nEmail: ${email}\n\n${message}`)}`;
+        window.open(mailto);
+        showMsg('📧 Opening your email client... Thanks for reaching out!', 'ok');
+        form.reset();
+      } else {
+        // ── EmailJS configured — send directly ──
+        await emailjs.send(
+          EMAILJS_SERVICE_ID,
+          EMAILJS_TEMPLATE_ID,
+          { from_name: name, from_email: email, subject: subject, message: message },
+          EMAILJS_PUBLIC_KEY
+        );
+        showMsg('🚀 Message sent! Abhishek will get back to you soon.', 'ok');
+        form.reset();
+      }
     } catch (err) {
       console.error('EmailJS error:', err);
-      showMsg('❌ Could not send. Please email directly: abhishek129529@gmail.com', 'err');
+      showMsg('❌ Could not send. Please email: abhishek129529@gmail.com', 'err');
     } finally {
       lbl.textContent = 'Send Message'; btn.disabled = false;
     }
