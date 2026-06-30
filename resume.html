@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abhishek R — Resume</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@700;900&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #f0f4f8;
+      font-family: 'Inter', sans-serif;
+      color: #1a1a2e;
+      min-height: 100vh;
+      padding: 30px 20px 60px;
+    }
+
+    /* Print Button Bar */
+    .action-bar {
+      max-width: 820px; margin: 0 auto 24px;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 12px;
+    }
+    .action-bar a {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: .85rem; color: #0066ff; text-decoration: none; font-weight: 500;
+    }
+    .action-bar a svg { width: 16px; height: 16px; }
+    .action-bar a:hover { text-decoration: underline; }
+    .btn-print {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: linear-gradient(135deg, #00f5ff, #0066ff);
+      color: #000; font-family: 'Inter', sans-serif; font-size: .85rem;
+      font-weight: 700; border: none; border-radius: 8px;
+      padding: 10px 22px; cursor: pointer; letter-spacing: .5px;
+      box-shadow: 0 4px 20px rgba(0,245,255,.3); transition: all .2s;
+    }
+    .btn-print:hover { transform: translateY(-2px); box-shadow: 0 6px 25px rgba(0,245,255,.5); }
+    .btn-print svg { width: 16px; height: 16px; }
+
+    /* Resume Paper */
+    .resume {
+      max-width: 820px; margin: 0 auto;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.12), 0 4px 20px rgba(0,0,0,.06);
+      overflow: hidden;
+    }
+
+    /* Header */
+    .r-header {
+      background: linear-gradient(135deg, #050510 0%, #0d0d28 60%, #1a0033 100%);
+      padding: 44px 48px 36px;
+      position: relative; overflow: hidden;
+    }
+    .r-header::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(0,245,255,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,245,255,0.06) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+    .r-name {
+      font-family: 'Orbitron', sans-serif; font-size: 2.6rem; font-weight: 900;
+      letter-spacing: .04em;
+      background: linear-gradient(135deg, #00f5ff, #b300ff, #ff0090);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      position: relative;
+    }
+    .r-title {
+      color: rgba(255,255,255,.7); font-size: .95rem; letter-spacing: 1.5px;
+      margin: 10px 0 22px; font-weight: 400; position: relative;
+    }
+    .r-contacts {
+      display: flex; flex-wrap: wrap; gap: 16px; position: relative;
+    }
+    .r-contact {
+      display: flex; align-items: center; gap: 7px;
+      color: rgba(255,255,255,.75); font-size: .82rem;
+    }
+    .r-contact svg { width: 14px; height: 14px; color: #00f5ff; flex-shrink: 0; }
+
+    /* Body */
+    .r-body { padding: 40px 48px; }
+
+    /* Section */
+    .r-section { margin-bottom: 32px; }
+    .r-section:last-child { margin-bottom: 0; }
+    .r-section-title {
+      font-size: .72rem; font-weight: 700; letter-spacing: 3px;
+      text-transform: uppercase; color: #0066ff;
+      padding-bottom: 8px; margin-bottom: 18px;
+      border-bottom: 2px solid #e8f0ff;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .r-section-title::before {
+      content: ''; width: 4px; height: 16px;
+      background: linear-gradient(180deg, #00f5ff, #b300ff);
+      border-radius: 2px; flex-shrink: 0;
+    }
+
+    /* Summary */
+    .r-summary { color: #444; line-height: 1.75; font-size: .9rem; }
+    .r-summary strong { color: #1a1a2e; }
+
+    /* Education */
+    .r-edu-row { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
+    .r-edu-name { font-weight: 700; font-size: .95rem; color: #1a1a2e; }
+    .r-edu-degree { font-size: .85rem; color: #555; margin: 3px 0; }
+    .r-edu-course { font-size: .82rem; color: #777; margin-top: 8px; }
+    .r-edu-course strong { color: #444; }
+    .r-meta { text-align: right; flex-shrink: 0; }
+    .r-year { font-size: .82rem; font-weight: 600; color: #0066ff; }
+    .r-cgpa {
+      display: inline-block; margin-top: 6px;
+      background: #fff8e1; border: 1px solid #ffd700;
+      border-radius: 50px; padding: 3px 12px;
+      font-size: .78rem; font-weight: 700; color: #c67c00;
+    }
+
+    /* Projects */
+    .r-project { margin-bottom: 22px; padding: 18px; background: #f8faff; border-radius: 10px; border-left: 3px solid #00f5ff; }
+    .r-project:last-child { margin-bottom: 0; }
+    .r-project-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px; }
+    .r-project-name { font-weight: 700; font-size: .95rem; color: #1a1a2e; }
+    .r-project-date { font-size: .78rem; color: #888; font-weight: 500; }
+    .r-project-type { font-size: .78rem; color: #0066ff; font-style: italic; margin-bottom: 10px; }
+    .r-project-bullets { list-style: none; display: flex; flex-direction: column; gap: 5px; margin-bottom: 12px; }
+    .r-project-bullets li { display: flex; gap: 8px; font-size: .85rem; color: #444; line-height: 1.5; }
+    .r-project-bullets li::before { content: '▸'; color: #00f5ff; flex-shrink: 0; font-size: .8rem; margin-top: 2px; }
+    .r-project-bullets li strong { color: #1a1a2e; }
+    .r-tech { font-size: .78rem; color: #666; }
+    .r-tech strong { color: #444; }
+
+    /* Skills */
+    .r-skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .r-skill-row { display: flex; gap: 10px; }
+    .r-skill-label { font-weight: 600; font-size: .82rem; color: #1a1a2e; min-width: 150px; flex-shrink: 0; }
+    .r-skill-val { font-size: .82rem; color: #555; }
+
+    /* Certs */
+    .r-cert { display: flex; justify-content: space-between; align-items: flex-start; padding: 14px 0; border-bottom: 1px solid #f0f4f8; }
+    .r-cert:last-child { border-bottom: none; padding-bottom: 0; }
+    .r-cert-name { font-weight: 600; font-size: .9rem; color: #1a1a2e; margin-bottom: 3px; }
+    .r-cert-issuer { font-size: .8rem; color: #0066ff; }
+    .r-cert-url { font-size: .72rem; color: #888; word-break: break-all; margin-top: 4px; }
+    .r-cert-date { font-size: .78rem; font-weight: 600; color: #b300ff; white-space: nowrap; margin-left: 16px; }
+
+    /* Languages */
+    .r-lang-pills { display: flex; gap: 10px; flex-wrap: wrap; }
+    .r-lang-pill {
+      background: #f0f4ff; border: 1px solid #c5d5ff;
+      border-radius: 50px; padding: 5px 16px;
+      font-size: .8rem; font-weight: 500; color: #0066ff;
+    }
+
+    /* ── PRINT STYLES ── */
+    @media print {
+      body { background: #fff; padding: 0; }
+      .action-bar { display: none !important; }
+      .resume { box-shadow: none; border-radius: 0; max-width: 100%; }
+      .r-header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .r-project { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      @page { margin: 0; size: A4; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Action Bar -->
+  <div class="action-bar">
+    <a href="index.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+      Back to Portfolio
+    </a>
+    <button class="btn-print" onclick="window.print()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+      Download / Print PDF
+    </button>
+  </div>
+
+  <!-- Resume -->
+  <div class="resume">
+
+    <!-- Header -->
+    <div class="r-header">
+      <div class="r-name">ABHISHEK R</div>
+      <div class="r-title">Aspiring Data Scientist &nbsp;|&nbsp; Python &nbsp;|&nbsp; Machine Learning &nbsp;|&nbsp; Full Stack</div>
+      <div class="r-contacts">
+        <div class="r-contact">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          abhishek129529@gmail.com
+        </div>
+        <div class="r-contact">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          Mysuru, Karnataka, India
+        </div>
+        <div class="r-contact">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+          github.com/Abhishek-1295
+        </div>
+      </div>
+    </div>
+
+    <!-- Body -->
+    <div class="r-body">
+
+      <!-- Professional Summary -->
+      <div class="r-section">
+        <div class="r-section-title">Professional Summary</div>
+        <p class="r-summary">
+          BCA (Data Science) student at <strong>Amrita Vishwa Vidyapeetham, Mysuru</strong>, with hands-on experience in <strong>Python, machine learning,</strong> and <strong>full stack web development</strong>. Developed real-world projects, including an <strong>ML-powered house price predictor</strong> and a <strong>full stack room booking web app</strong>. Actively seeking internship opportunities to leverage data science and development skills in a professional setting.
+        </p>
+      </div>
+
+      <!-- Education -->
+      <div class="r-section">
+        <div class="r-section-title">Education</div>
+        <div class="r-edu-row">
+          <div>
+            <div class="r-edu-name">Amrita Vishwa Vidyapeetham &nbsp;|&nbsp; Mysuru</div>
+            <div class="r-edu-degree">BCA — Specialization in Data Science</div>
+            <div class="r-edu-course"><strong>Relevant Coursework:</strong> Data Mining, Machine Learning, Artificial Intelligence, Data Governance, Full Stack Web Development</div>
+          </div>
+          <div class="r-meta">
+            <div class="r-year">2024 – 2027</div>
+            <div class="r-cgpa">CGPA: 8.21 / 10 ⭐</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Projects -->
+      <div class="r-section">
+        <div class="r-section-title">Projects</div>
+
+        <div class="r-project">
+          <div class="r-project-header">
+            <div class="r-project-name">House Price Predictor</div>
+            <div class="r-project-date">Apr 2026</div>
+          </div>
+          <div class="r-project-type">Individual Project</div>
+          <ul class="r-project-bullets">
+            <li>Developed a machine learning model to <strong>predict house prices</strong> using the <strong>Random Forest Regressor</strong> algorithm.</li>
+            <li>Conducted data preprocessing, feature selection, and model training on a structured CSV dataset.</li>
+            <li>Created an interactive user input feature for <strong>real-time price predictions</strong>.</li>
+            <li>Assessed model performance with <strong>RMSE</strong> and <strong>R² metrics</strong> to ensure high prediction accuracy.</li>
+          </ul>
+          <div class="r-tech"><strong>Technologies / Tools Used:</strong> Python, Scikit-learn, Random Forest, Pandas, NumPy, Google Colab</div>
+        </div>
+
+        <div class="r-project">
+          <div class="r-project-header">
+            <div class="r-project-name">Room Booking Web Application</div>
+            <div class="r-project-date">Jan 2026</div>
+          </div>
+          <div class="r-project-type">Individual Project</div>
+          <ul class="r-project-bullets">
+            <li>Developed a full-stack room booking web application utilizing a <strong>React</strong> frontend and <strong>Node.js/Express</strong> backend.</li>
+            <li>Implemented CRUD operations for room listings, bookings, and user management using <strong>MongoDB</strong>.</li>
+            <li>Designed a responsive UI for browsing and booking rooms, featuring <strong>real-time availability updates</strong>.</li>
+            <li>Deployed and tested the application locally, leveraging a <strong>RESTful API</strong> architecture.</li>
+          </ul>
+          <div class="r-tech"><strong>Technologies / Tools Used:</strong> React, Node.js, Express.js, MongoDB, HTML, CSS</div>
+        </div>
+      </div>
+
+      <!-- Skills -->
+      <div class="r-section">
+        <div class="r-section-title">Skills</div>
+        <div class="r-skills-grid">
+          <div class="r-skill-row"><span class="r-skill-label">Programming Languages</span><span class="r-skill-val">C, C++, Java, Python, JavaScript, SQL</span></div>
+          <div class="r-skill-row"><span class="r-skill-label">Frameworks &amp; Libraries</span><span class="r-skill-val">React, Node.js, Express</span></div>
+          <div class="r-skill-row"><span class="r-skill-label">Tools &amp; Platforms</span><span class="r-skill-val">GitHub, Git, Linux</span></div>
+          <div class="r-skill-row"><span class="r-skill-label">Databases</span><span class="r-skill-val">MongoDB, MySQL</span></div>
+          <div class="r-skill-row"><span class="r-skill-label">Soft Skills</span><span class="r-skill-val">Communication, Leadership, Problem Solving, Critical Thinking</span></div>
+          <div class="r-skill-row"><span class="r-skill-label">Languages</span><span class="r-skill-val">English, Hindi, Kannada</span></div>
+        </div>
+      </div>
+
+      <!-- Certifications -->
+      <div class="r-section">
+        <div class="r-section-title">Certifications</div>
+        <div class="r-cert">
+          <div>
+            <div class="r-cert-name">Introduction to Data Science</div>
+            <div class="r-cert-issuer">Cisco Networking Academy</div>
+            <div class="r-cert-url">https://www.credly.com/badges/07934a4f-1cd5-403d-aab8-b1063878a67b</div>
+          </div>
+          <div class="r-cert-date">Oct 2025</div>
+        </div>
+        <div class="r-cert">
+          <div>
+            <div class="r-cert-name">CSS Essentials</div>
+            <div class="r-cert-issuer">Cisco Networking Academy</div>
+            <div class="r-cert-url">https://www.credly.com/badges/08aa0819-7576-4710-8834-c4ba3e91e22c</div>
+          </div>
+          <div class="r-cert-date">Nov 2025</div>
+        </div>
+      </div>
+
+    </div><!-- /r-body -->
+  </div><!-- /resume -->
+
+</body>
+</html>

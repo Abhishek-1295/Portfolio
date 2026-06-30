@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abhishek R | Data Scientist & Full Stack Developer</title>
+  <meta name="description" content="Portfolio of Abhishek R — BCA Data Science student at Amrita Vishwa Vidyapeetham skilled in Python, Machine Learning, and Full Stack Web Development." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=Fira+Code:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Background Elements -->
+  <div class="bg-orb bg-orb-1"></div>
+  <div class="bg-orb bg-orb-2"></div>
+  <div class="bg-orb bg-orb-3"></div>
+
+  <!-- Custom Cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+
+  <!-- Loading Screen -->
+  <div class="loader" id="loader">
+    <div class="loader-inner">
+      <div class="loader-ring"></div>
+      <p class="loader-text">INITIALIZING<span class="loader-dots">...</span></p>
+    </div>
+  </div>
+
+  <!-- ══════════════ NAVIGATION ══════════════ -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo" id="navLogo">
+        <span class="bracket">&lt;</span>AR<span class="bracket">/&gt;</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#hero"      class="nav-link active" id="nlHome">Home</a></li>
+        <li><a href="#about"     class="nav-link" id="nlAbout">About</a></li>
+        <li><a href="#skills"    class="nav-link" id="nlSkills">Skills</a></li>
+        <li><a href="#projects"  class="nav-link" id="nlProjects">Projects</a></li>
+        <li><a href="#education" class="nav-link" id="nlEdu">Education</a></li>
+        <li><a href="#contact"   class="nav-link" id="nlContact">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ══════════════ HERO ══════════════ -->
+  <section class="hero" id="hero">
+    <canvas id="heroCanvas"></canvas>
+
+    <!-- Floating data badges background deco -->
+    <div class="hero-deco">
+      <span class="deco-badge" style="top:15%;left:5%;">Python 🐍</span>
+      <span class="deco-badge" style="top:70%;left:3%;">Machine Learning 🤖</span>
+      <span class="deco-badge" style="top:25%;right:4%;">React ⚛️</span>
+      <span class="deco-badge" style="top:65%;right:5%;">Node.js 🟢</span>
+      <span class="deco-badge" style="top:85%;left:20%;">MongoDB 🍃</span>
+      <span class="deco-badge" style="top:10%;right:18%;">Random Forest 🌲</span>
+    </div>
+
+    <div class="hero-wrap">
+      <!-- LEFT: Text Content -->
+      <div class="hero-left">
+        <div class="hero-badge" id="heroBadge">
+          <span class="badge-dot"></span>
+          Open to Internship Opportunities
+        </div>
+
+        <h1 class="hero-title">
+          <span class="glitch-text" data-text="ABHISHEK R">ABHISHEK R</span>
+        </h1>
+
+        <div class="hero-role-strip">
+          <span class="role-pill">Data Scientist</span>
+          <span class="role-sep">·</span>
+          <span class="role-pill">ML Engineer</span>
+          <span class="role-sep">·</span>
+          <span class="role-pill">Full Stack Dev</span>
+        </div>
+
+        <div class="hero-subtitle">
+          <span class="typing-text" id="typingText"></span><span class="cursor-blink">|</span>
+        </div>
+
+        <div class="hero-contact-row">
+          <span class="hcb">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            abhishek129529@gmail.com
+          </span>
+          <span class="hcb">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            Mysuru, India
+          </span>
+        </div>
+
+        <div class="hero-btns">
+          <a href="#projects" class="btn btn-primary" id="heroViewWork">
+            <span>View Projects</span>
+            <div class="btn-shine"></div>
+          </a>
+          <a href="resume.html" target="_blank" class="btn btn-outline" id="heroResume">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            View Resume
+          </a>
+          <a href="#contact" class="btn btn-outline" id="heroContact">Get In Touch</a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <div class="stat-number" data-target="2" id="stat1">0</div>
+            <div class="stat-label">Projects Built</div>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <div class="stat-number" data-target="12" id="stat2">0</div>
+            <div class="stat-label">Skills Learned</div>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <div class="stat-number" data-target="2" id="stat3">0</div>
+            <div class="stat-label">Certifications</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Terminal Widget -->
+      <div class="hero-right">
+        <div class="terminal" id="terminal">
+          <div class="term-hdr">
+            <div class="term-dots">
+              <span class="tdot red"></span>
+              <span class="tdot yellow"></span>
+              <span class="tdot ggreen"></span>
+            </div>
+            <span class="term-title">abhishek@portfolio:~$ python</span>
+            <div class="term-blinker"></div>
+          </div>
+          <div class="term-body" id="termBody">
+            <!-- Terminal lines injected by JS -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-hint">
+      <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
+      <span>Scroll to explore</span>
+    </div>
+  </section>
+
+  <!-- ══════════════ ABOUT ══════════════ -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">// 01</span>
+        <h2 class="section-title">About Me</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="about-grid">
+        <div class="about-card-wrap" id="aboutCard">
+          <div class="about-card">
+            <div class="card-glow-top"></div>
+            <div class="avatar-ring-wrap">
+              <div class="avatar-ring"></div>
+              <div class="avatar-core">AR</div>
+            </div>
+            <div class="card-rows">
+              <div class="card-row"><span class="row-label">STATUS</span><span class="row-val status-on">● OPEN TO INTERNSHIP</span></div>
+              <div class="card-row"><span class="row-label">LOCATION</span><span class="row-val">Mysuru, India</span></div>
+              <div class="card-row"><span class="row-label">DEGREE</span><span class="row-val">BCA – Data Science</span></div>
+              <div class="card-row"><span class="row-label">CGPA</span><span class="row-val cgpa-val">8.21 / 10.0 ⭐</span></div>
+              <div class="card-row"><span class="row-label">FOCUS</span><span class="row-val">ML &amp; Full Stack Dev</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="about-text" id="aboutText">
+          <h3 class="about-greeting">Hey there! <span class="wave">👋</span></h3>
+          <p>I'm <strong>Abhishek R</strong>, a passionate <span class="hl">BCA (Data Science) student</span> at <span class="hl">Amrita Vishwa Vidyapeetham, Mysuru</span>. I have hands-on experience in Python, machine learning, and full stack web development.</p>
+          <p>I've built real-world projects including an <span class="hl">ML-powered House Price Predictor</span> using the Random Forest algorithm and a <span class="hl">full-stack Room Booking Web Application</span> using React, Node.js, and MongoDB.</p>
+          <p>Actively seeking <span class="hl">internship opportunities</span> to leverage my data science and development skills in a professional, impactful setting.</p>
+          <div class="about-tags">
+            <span class="tag">Data Science</span>
+            <span class="tag">Machine Learning</span>
+            <span class="tag">Full Stack</span>
+            <span class="tag">Problem Solver</span>
+            <span class="tag">Team Player</span>
+          </div>
+          <div class="about-btn-row">
+            <a href="resume.html" target="_blank" class="btn btn-primary btn-sm" id="resumeBtn">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              <span>View Resume</span>
+            </a>
+            <a href="#contact" class="btn btn-outline btn-sm" id="contactBtn2">Get In Touch</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ SKILLS ══════════════ -->
+  <section class="skills" id="skills">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">// 02</span>
+        <h2 class="section-title">My Skills</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="skills-grid">
+
+        <div class="skill-cat" id="skillDS">
+          <div class="skill-cat-header">
+            <span class="skill-icon">🤖</span>
+            <h3>Data Science &amp; ML</h3>
+          </div>
+          <div class="skill-list">
+            <div class="skill-item"><div class="skill-meta"><span>Python</span><span class="skill-pct">90%</span></div><div class="skill-bar"><div class="skill-fill" data-w="90"></div></div></div>
+            <div class="skill-item"><div class="skill-meta"><span>Scikit-learn / ML</span><span class="skill-pct">80%</span></div><div class="skill-bar"><div class="skill-fill" data-w="80"></div></div></div>
+            <div class="skill-item"><div class="skill-meta"><span>Pandas &amp; NumPy</span><span class="skill-pct">82%</span></div><div class="skill-bar"><div class="skill-fill" data-w="82"></div></div></div>
+            <div class="skill-item"><div class="skill-meta"><span>Data Analysis</span><span class="skill-pct">78%</span></div><div class="skill-bar"><div class="skill-fill" data-w="78"></div></div></div>
+          </div>
+        </div>
+
+        <div class="skill-cat" id="skillWeb">
+          <div class="skill-cat-header">
+            <span class="skill-icon">🌐</span>
+            <h3>Web Development</h3>
+          </div>
+          <div class="skill-list">
+            <div class="skill-item"><div class="skill-meta"><span>React.js</span><span class="skill-pct">75%</span></div><div class="skill-bar"><div class="skill-fill" data-w="75"></div></div></div>
+            <div class="skill-item"><div class="skill-meta"><span>Node.js / Express</span><span class="skill-pct">72%</span></div><div class="skill-bar"><div class="skill-fill" data-w="72"></div></div></div>
+            <div class="skill-item"><div class="skill-meta"><span>MongoDB</span><span class="skill-pct">70%</span></div><div class="skill-bar"><div class="skill-fill" data-w="70"></div></div></div>
+            <div class="skill-item"><div class="skill-meta"><span>HTML / CSS</span><span class="skill-pct">85%</span></div><div class="skill-bar"><div class="skill-fill" data-w="85"></div></div></div>
+          </div>
+        </div>
+
+        <div class="skill-cat" id="skillTools">
+          <div class="skill-cat-header">
+            <span class="skill-icon">🛠️</span>
+            <h3>Languages &amp; Tools</h3>
+          </div>
+          <div class="skill-list">
+            <div class="skill-item"><div class="skill-meta"><span>Git / GitHub</span><span class="skill-pct">85%</span></div><div class="skill-bar"><div class="skill-fill" data-w="85"></div></div></div>
+            <div class="skill-item"><div class="skill-meta"><span>SQL / MySQL</span><span class="skill-pct">78%</span></div><div class="skill-bar"><div class="skill-fill" data-w="78"></div></div></div>
+            <div class="skill-item"><div class="skill-meta"><span>C / C++ / Java</span><span class="skill-pct">72%</span></div><div class="skill-bar"><div class="skill-fill" data-w="72"></div></div></div>
+            <div class="skill-item"><div class="skill-meta"><span>Linux</span><span class="skill-pct">68%</span></div><div class="skill-bar"><div class="skill-fill" data-w="68"></div></div></div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Soft Skills + Languages Row -->
+      <div class="soft-skills-row">
+        <div class="soft-category">
+          <h4>💬 Soft Skills</h4>
+          <div class="pill-row">
+            <span class="skill-pill">Communication</span>
+            <span class="skill-pill">Leadership</span>
+            <span class="skill-pill">Problem Solving</span>
+            <span class="skill-pill">Critical Thinking</span>
+          </div>
+        </div>
+        <div class="soft-category">
+          <h4>🌍 Languages</h4>
+          <div class="pill-row">
+            <span class="skill-pill lang">English</span>
+            <span class="skill-pill lang">Hindi</span>
+            <span class="skill-pill lang">Kannada</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ PROJECTS ══════════════ -->
+  <section class="projects" id="projects">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">// 03</span>
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="projects-grid-2">
+
+        <div class="proj-card proj-big" id="proj1">
+          <div class="proj-inner">
+            <div class="proj-date-badge">Apr 2026</div>
+            <div class="proj-top">
+              <span class="proj-emoji">🏠</span>
+              <div class="proj-links">
+                <a href="#" class="proj-link" id="proj1gh" title="GitHub">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.79-.26.79-.58v-2.23c-3.34.72-4.03-1.42-4.03-1.42-.55-1.39-1.33-1.76-1.33-1.76-1.09-.75.08-.73.08-.73 1.21.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.49 1 .11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23A11.5 11.5 0 0 1 12 6.8c1.02.005 2.05.14 3.01.4 2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.19.69.8.58C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                </a>
+              </div>
+            </div>
+            <h3 class="proj-title">House Price Predictor</h3>
+            <p class="proj-type">Individual ML Project</p>
+            <div class="proj-bullets">
+              <div class="proj-bullet"><span class="pbullet-dot"></span>Developed an ML model using <strong>Random Forest Regressor</strong> to predict house prices accurately.</div>
+              <div class="proj-bullet"><span class="pbullet-dot"></span>Conducted data preprocessing, feature selection, and model training on a structured CSV dataset.</div>
+              <div class="proj-bullet"><span class="pbullet-dot"></span>Created an interactive UI for real-time price predictions based on user inputs.</div>
+              <div class="proj-bullet"><span class="pbullet-dot"></span>Evaluated performance using <strong>RMSE</strong> and <strong>R² metrics</strong> for high prediction accuracy.</div>
+            </div>
+            <div class="proj-tags">
+              <span class="ptag">Python</span><span class="ptag">Scikit-learn</span>
+              <span class="ptag">Pandas</span><span class="ptag">NumPy</span>
+              <span class="ptag">Google Colab</span>
+            </div>
+          </div>
+          <div class="proj-glow"></div>
+        </div>
+
+        <div class="proj-card proj-big proj-featured" id="proj2">
+          <div class="proj-inner">
+            <div class="proj-date-badge">Jan 2026</div>
+            <div class="proj-featured-badge">⭐ Featured</div>
+            <div class="proj-top">
+              <span class="proj-emoji">🏨</span>
+              <div class="proj-links">
+                <a href="#" class="proj-link" id="proj2gh" title="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.79-.26.79-.58v-2.23c-3.34.72-4.03-1.42-4.03-1.42-.55-1.39-1.33-1.76-1.33-1.76-1.09-.75.08-.73.08-.73 1.21.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.49 1 .11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23A11.5 11.5 0 0 1 12 6.8c1.02.005 2.05.14 3.01.4 2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.19.69.8.58C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg></a>
+              </div>
+            </div>
+            <h3 class="proj-title">Room Booking Web Application</h3>
+            <p class="proj-type">Individual Full Stack Project</p>
+            <div class="proj-bullets">
+              <div class="proj-bullet"><span class="pbullet-dot"></span>Built a full-stack app with a <strong>React</strong> frontend and <strong>Node.js/Express</strong> backend.</div>
+              <div class="proj-bullet"><span class="pbullet-dot"></span>Implemented CRUD operations for room listings, bookings, and user management using <strong>MongoDB</strong>.</div>
+              <div class="proj-bullet"><span class="pbullet-dot"></span>Designed a responsive UI for browsing and booking rooms with real-time availability updates.</div>
+              <div class="proj-bullet"><span class="pbullet-dot"></span>Deployed and tested locally using a clean <strong>RESTful API</strong> architecture.</div>
+            </div>
+            <div class="proj-tags">
+              <span class="ptag">React</span><span class="ptag">Node.js</span>
+              <span class="ptag">Express.js</span><span class="ptag">MongoDB</span>
+              <span class="ptag">RESTful API</span>
+            </div>
+          </div>
+          <div class="proj-glow"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ EDUCATION & CERTIFICATIONS ══════════════ -->
+  <section class="education" id="education">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">// 04</span>
+        <h2 class="section-title">Education &amp; Certifications</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <!-- Education Card -->
+      <div class="edu-card" id="eduCard">
+        <div class="edu-card-left">
+          <div class="edu-icon">🎓</div>
+          <div class="edu-timeline-line"></div>
+        </div>
+        <div class="edu-card-right">
+          <div class="edu-header">
+            <div>
+              <h3 class="edu-uni">Amrita Vishwa Vidyapeetham</h3>
+              <p class="edu-degree">BCA — Specialization in Data Science</p>
+              <p class="edu-loc">📍 Mysuru, Karnataka, India</p>
+            </div>
+            <div class="edu-meta">
+              <span class="edu-year">2024 – 2027</span>
+              <span class="edu-cgpa">CGPA: 8.21 / 10 ⭐</span>
+            </div>
+          </div>
+          <div class="edu-coursework">
+            <span class="edu-cw-label">Relevant Coursework:</span>
+            <div class="edu-cw-pills">
+              <span class="cw-pill">Data Mining</span>
+              <span class="cw-pill">Machine Learning</span>
+              <span class="cw-pill">Artificial Intelligence</span>
+              <span class="cw-pill">Data Governance</span>
+              <span class="cw-pill">Full Stack Web Development</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Certifications -->
+      <div class="certs-header">
+        <h3 class="certs-title">📜 Certifications</h3>
+      </div>
+      <div class="certs-grid">
+
+        <div class="cert-card" id="cert1">
+          <div class="cert-badge-icon">🏅</div>
+          <div class="cert-info">
+            <h4 class="cert-name">Introduction to Data Science</h4>
+            <p class="cert-issuer">Cisco Networking Academy</p>
+            <span class="cert-date">Oct 2025</span>
+          </div>
+          <a href="https://www.credly.com/badges/07934a4f-1cd5-403d-aab8-b1063878a67b" target="_blank" rel="noopener" class="cert-btn" id="cert1Link">
+            View Badge
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+
+        <div class="cert-card" id="cert2">
+          <div class="cert-badge-icon">🏅</div>
+          <div class="cert-info">
+            <h4 class="cert-name">CSS Essentials</h4>
+            <p class="cert-issuer">Cisco Networking Academy</p>
+            <span class="cert-date">Nov 2025</span>
+          </div>
+          <a href="https://www.credly.com/badges/08aa0819-7576-4710-8834-c4ba3e91e22c" target="_blank" rel="noopener" class="cert-btn" id="cert2Link">
+            View Badge
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ CONTACT ══════════════ -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">// 05</span>
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info" id="contactInfo">
+          <h3>Let's Build Something Amazing</h3>
+          <p>Whether you have an internship opportunity, a project idea, or just want to connect — I'd love to hear from you! Currently actively seeking internship roles in Data Science, ML, or Full Stack Development.</p>
+          <div class="contact-items">
+            <div class="ci" id="ciEmail">
+              <div class="ci-icon">📧</div>
+              <div><div class="ci-label">Email (Display Only)</div><div class="ci-val">abhishek129529@gmail.com</div></div>
+            </div>
+            <span class="ci" id="ciLocation">
+              <div class="ci-icon">📍</div>
+              <div><div class="ci-label">Location</div><div class="ci-val">Mysuru, Karnataka, India</div></div>
+            </span>
+            <a href="resume.html" target="_blank" class="ci ci-resume" id="ciResume">
+              <div class="ci-icon">📄</div>
+              <div><div class="ci-label">Resume</div><div class="ci-val">View / Download PDF →</div></div>
+            </a>
+          </div>
+        </div>
+        <form class="contact-form" id="contactForm" novalidate>
+          <div class="fg">
+            <label for="cfName">Your Name</label>
+            <input type="text" id="cfName" name="name" placeholder="John Doe" required />
+            <div class="fg-line"></div>
+          </div>
+          <div class="fg">
+            <label for="cfEmail">Email Address</label>
+            <input type="email" id="cfEmail" name="email" placeholder="john@example.com" required />
+            <div class="fg-line"></div>
+          </div>
+          <div class="fg">
+            <label for="cfSubject">Subject</label>
+            <input type="text" id="cfSubject" name="subject" placeholder="Internship Opportunity / Project Collab..." required />
+            <div class="fg-line"></div>
+          </div>
+          <div class="fg">
+            <label for="cfMessage">Message</label>
+            <textarea id="cfMessage" name="message" rows="5" placeholder="Tell me about the opportunity or what you have in mind..." required></textarea>
+            <div class="fg-line"></div>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full" id="cfSubmit">
+            <span class="btn-label">Send Message</span>
+            <span>🚀</span>
+            <div class="btn-shine"></div>
+          </button>
+          <div class="form-msg" id="formMsg"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ FOOTER ══════════════ -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo"><span class="bracket">&lt;</span>AR<span class="bracket">/&gt;</span></div>
+      <p class="footer-copy">Designed &amp; Built with ❤️ by Abhishek R</p>
+      <div class="footer-links">
+        <a href="https://github.com/Abhishek-1295" target="_blank" id="ftGithub">GitHub</a>
+        <a href="resume.html" target="_blank" id="ftResume">Resume</a>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2025 Abhishek R · BCA Data Science · Amrita Vishwa Vidyapeetham, Mysuru</div>
+  </footer>
+
+  <!-- ══════════════ CHATBOT (ARIA) ══════════════ -->
+  <div class="bot-wrap" id="botWrap">
+    <div class="bot-window" id="botWindow">
+      <div class="bot-header">
+        <div class="bot-avatar-wrap">
+          <div class="bot-avatar">AI</div>
+          <div class="bot-online"></div>
+        </div>
+        <div class="bot-meta">
+          <div class="bot-name">ARIA</div>
+          <div class="bot-sub">Abhishek's AI Assistant · Online</div>
+        </div>
+        <button class="bot-close" id="botClose">✕</button>
+      </div>
+      <div class="bot-msgs" id="botMsgs">
+        <div class="bot-msg-wrap bot">
+          <div class="bot-bubble">Hi! I'm <strong>ARIA</strong>. Ask me anything about Abhishek's skills, projects, education, or how to get in touch! 🤖</div>
+        </div>
+      </div>
+      <div class="bot-inputrow">
+        <input type="text" class="bot-input" id="botInput" placeholder="Ask me anything..." />
+        <button class="bot-send" id="botSend">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        </button>
+      </div>
+    </div>
+    <button class="bot-toggle" id="botToggle" aria-label="Open chat">
+      <span class="bot-icon">💬</span>
+      <span class="bot-pulse"></span>
+    </button>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.134.0/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/ScrollTrigger.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
